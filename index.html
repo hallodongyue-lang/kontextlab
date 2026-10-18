@@ -1,0 +1,839 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="德语内容安全语境研判与标注一致性研究实验室"><title>KontextLab · 语境研判实验室</title><style>:root{--bg:#f5f6f8;--ink:#202b3b;--muted:#7a8494;--line:#e6e9ef;--accent:#5063db;--soft:#eff0ff}*{box-sizing:border-box}body{margin:0;font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}button,input,textarea,select{font:inherit}button,.button{cursor:pointer;border:1px solid var(--line);background:white;border-radius:7px;padding:8px 13px;color:var(--ink);display:inline-block}button:hover,.button:hover{border-color:var(--accent);color:var(--accent)}button:focus-visible,a:focus-visible{outline:3px solid #aab5ff}aside{position:fixed;inset:0 auto 0 0;width:230px;padding:35px 23px;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column}.brand{font-size:23px;font-weight:750;text-decoration:none;color:var(--ink);letter-spacing:-1px}.brand span,h1 span{color:var(--accent)}.eyebrow{font-size:10px;letter-spacing:1.7px;font-weight:700;color:var(--muted)}nav{display:grid;gap:10px;margin-top:43px}nav a{padding:12px 14px;text-decoration:none;color:#647083;border-radius:7px}nav a.active{color:var(--accent);background:var(--soft);font-weight:700}.aside-bottom{margin-top:auto;font-size:9px;color:var(--muted)}.aside-bottom p{font-size:12px}.dot{display:inline-block;width:6px;height:6px;background:#63ad8c;border-radius:50%;margin-right:5px}main{margin-left:230px;padding:0 38px;max-width:1800px}header{min-height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;gap:15px}header div{display:flex;gap:6px;flex-wrap:wrap}.intro{display:flex;align-items:center;justify-content:space-between;padding:30px 0 24px}h1{font-size:30px;letter-spacing:-1px;margin:8px 0}h2{font-size:19px;margin:0 0 8px}h3{font-size:14px;margin:0 0 12px}.intro p:last-child{color:var(--muted);margin-bottom:0}.stamp{color:var(--accent);font-size:23px;text-align:right;font-weight:700}.stamp small{font-size:10px;letter-spacing:2px;color:var(--muted)}.notice{padding:10px 15px;border:1px solid #dedff3;background:#f0f1fc;border-radius:7px;font-size:11px;color:#65709c;margin-bottom:24px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}.card{background:white;border:1px solid var(--line);border-radius:10px;padding:22px}.metric-label{color:var(--muted);font-size:12px}.number{font-size:29px;font-weight:700;margin:8px 0}.subtle,small{color:var(--muted)}.toolbar{display:flex;gap:10px;margin-bottom:17px;flex-wrap:wrap;align-items:center}input,select,textarea{border:1px solid var(--line);padding:9px 10px;border-radius:6px;background:white;color:var(--ink)}input[type=search]{min-width:230px;flex:1}textarea{width:100%;min-height:90px;resize:vertical}.workspace{display:grid;grid-template-columns:minmax(240px,0.85fr) minmax(350px,1.5fr);gap:20px}.case-list{max-height:850px;overflow:auto;padding:0}.case-row{display:block;text-align:left;width:100%;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:18px;background:white}.case-row.selected{background:#f3f4ff;border-left:3px solid var(--accent);padding-left:15px}.case-row p{font-size:14px;margin:8px 0}.case-meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted)}.tag{display:inline-block;padding:3px 8px;border-radius:4px;background:#f0f2f6;color:#6c7789;font-size:10px}.tag.purple{background:#efedff;color:#7560bf}.tag.orange{background:#fff1df;color:#ae762c}.tag.green{background:#e9f5ef;color:#44856a}.detail-top{display:flex;justify-content:space-between;align-items:center}.quote{font-size:24px;line-height:1.5;letter-spacing:-.4px;margin:25px 0 8px}.translation{color:var(--muted);margin-bottom:25px}.context{background:#f7f8fa;border-left:3px solid #c6cdec;padding:16px;margin:18px 0}.context p{margin:4px 0}.dimensions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.dimension{padding:12px;border:1px solid var(--line);border-radius:6px;font-size:12px}.dimension b{display:block;font-size:10px;color:var(--muted);margin-bottom:6px}.form{border-top:1px solid var(--line);padding-top:20px}.form label{display:block;font-size:12px;margin:15px 0 7px}.options{display:grid;grid-template-columns:1fr 1fr;gap:7px}.options button.chosen{background:var(--soft);border-color:var(--accent);color:var(--accent)}.primary{background:var(--accent);color:white;border-color:var(--accent)}.primary:hover{color:white;background:#4051be}.form-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:18px;gap:10px}details{margin-top:20px;padding-top:15px;border-top:1px solid var(--line)}summary{cursor:pointer;color:var(--accent)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}.bar-row{margin:17px 0}.bar-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}.track{background:#f0f2f7;border-radius:5px;height:9px;overflow:hidden}.fill{background:#7b89dd;height:100%;border-radius:5px}.legend{font-size:12px;color:var(--muted)}table{border-collapse:collapse;width:100%;font-size:12px}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:left}th{color:var(--muted);font-weight:500}.scroll{overflow:auto}.rule{margin:18px 0}.rule a{color:var(--accent)}footer{display:flex;justify-content:space-between;padding:28px 0;color:var(--muted);font-size:10px;gap:15px}#toast{position:fixed;bottom:25px;right:25px;background:var(--ink);color:white;padding:12px 20px;border-radius:8px;display:none}.empty{padding:35px;color:var(--muted);text-align:center}.trend{display:flex;align-items:end;gap:9px;height:150px;margin-top:20px}.trend-col{flex:1;text-align:center;font-size:9px;color:var(--muted)}.trend-bar{background:#a4afe9;min-height:2px;border-radius:3px 3px 0 0;margin-bottom:8px}.rule li{margin:8px 0}@media(min-width:1500px){main{padding:0 60px}}@media(max-width:1050px){aside{width:190px;padding:25px 15px}main{margin-left:190px;padding:0 22px}.metrics{gap:9px}.card{padding:16px}.workspace{grid-template-columns:0.8fr 1.3fr}header{align-items:start;padding:17px 0}.stamp{display:none}}@media(max-width:760px){aside{position:static;width:100%;padding:15px;display:block}aside>.eyebrow,.aside-bottom{display:none}nav{display:flex;gap:2px;margin-top:12px;overflow:auto}nav a{white-space:nowrap;padding:8px;font-size:11px}.brand{font-size:20px}main{margin-left:0;padding:0 15px}header{flex-direction:column;gap:10px}.intro{padding:22px 0}h1{font-size:25px}.metrics{grid-template-columns:1fr 1fr}.workspace,.two-col{grid-template-columns:1fr}.case-list{max-height:260px}.quote{font-size:21px}.dimensions{grid-template-columns:1fr}.intro .eyebrow{font-size:8px}footer{display:block}footer span{display:block}.notice{font-size:10px}.options{grid-template-columns:1fr 1fr}}
+</style></head><body><aside><a class="brand" href="#cases">K<span>·</span> KontextLab</a><p class="eyebrow">LANGUAGE. CONTEXT. JUDGMENT.</p><nav><a href="#cases">◈　案例工作台</a><a href="#dashboard">◷　研究看板</a><a href="#agreement">⊞　一致性分析</a><a href="#rules">≡　规则与方法</a></nav><div class="aside-bottom"><span class="dot"></span> LOCAL RESEARCH ENVIRONMENT<p>德语 × 语用学 × 内容治理</p><small>V1.0 · 原创模拟研究</small></div></aside><main><header><span>工作空间 / <b id="breadcrumb">案例工作台</b></span><div><button id="export">↓ 导出研究报告</button><button id="csv">CSV</button><button id="backup">备份标注</button><label class="button">导入备份<input id="import" type="file" accept="application/json" hidden></label></div></header><div class="intro"><div><p class="eyebrow">GERMAN CONTENT SAFETY & CONTEXT ANALYSIS LAB</p><h1>判断之前，先理解语境<span>。</span></h1><p>语言形式 ≠ 交际功能。让每一次研判，都有可追溯的依据。</p></div><div class="stamp">DE / ZH<br><small>研究型作品集</small></div></div><div class="notice">研究演示 · 40 条原创虚构案例 · 本地保存标注 · 项目自定义框架，不代表 TikTok 官方审核政策。<span id="storage-note"></span></div><section id="view"></section><footer>KontextLab / 让不确定性被看见。 <span>无模型调用 · 无真实用户数据 · 无自动违规裁决</span></footer></main><div id="toast" role="status" aria-live="polite"></div><script>window.CASES = [
+  {
+    "id": "DE001",
+    "text": "Du bist wirklich ein Genie! 🎉",
+    "zh": "你真是个天才！",
+    "context": "朋友完成开源项目后收到祝贺。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "正面评价与情境一致，未见攻击目标。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-01",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Du bist wirklich ein Genie! 🎉",
+      "语境信息": "朋友完成开源项目后收到祝贺。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE002",
+    "text": "Das sehe ich anders. Deine Zahlen passen nicht zur Quelle.",
+    "zh": "我不同意，你的数据与来源不符。",
+    "context": "讨论一份公开报告。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "批评论据而非人格。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-01",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Das sehe ich anders. Deine Zahlen passen nicht zur Quelle.",
+      "语境信息": "讨论一份公开报告。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE003",
+    "text": "Ich liebe diesen chaotischen Stil.",
+    "zh": "我喜欢这种混乱的风格。",
+    "context": "创作者主动分享实验绘画。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "审美评价，无有害行为证据。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-01",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Ich liebe diesen chaotischen Stil.",
+      "语境信息": "创作者主动分享实验绘画。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE004",
+    "text": "Alter, das war stark!",
+    "zh": "老兄，这太厉害了！",
+    "context": "朋友展示滑板动作。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "口语称呼需要结合亲密关系理解。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-02",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Alter, das war stark!",
+      "语境信息": "朋友展示滑板动作。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE005",
+    "text": "Dieser Vorschlag ist schlecht begründet.",
+    "zh": "这个建议论证不足。",
+    "context": "公共政策讨论。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "针对提案的批评。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-02",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Dieser Vorschlag ist schlecht begründet.",
+      "语境信息": "公共政策讨论。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE006",
+    "text": "Danke für die Korrektur, ich lag falsch.",
+    "zh": "谢谢纠正，我弄错了。",
+    "context": "用户回应事实核查。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "承认错误，无攻击。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-02",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Danke für die Korrektur, ich lag falsch.",
+      "语境信息": "用户回应事实核查。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE007",
+    "text": "Was für ein herrlicher Fail 😂",
+    "zh": "好精彩的翻车。",
+    "context": "作者自嘲烤糊蛋糕，好友回应。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "共同玩笑，无持续针对证据。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-03",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Was für ein herrlicher Fail 😂",
+      "语境信息": "作者自嘲烤糊蛋糕，好友回应。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE008",
+    "text": "Bitte lass uns beim Thema bleiben.",
+    "zh": "请回到话题。",
+    "context": "版主提醒讨论秩序。",
+    "category": "正常表达",
+    "reference": "未发现明显风险",
+    "rationale": "边界提醒不等于骚扰。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-03",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Bitte lass uns beim Thema bleiben.",
+      "语境信息": "版主提醒讨论秩序。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE009",
+    "text": "Na, du bist ja wirklich ein Genie. 🙄",
+    "zh": "哎呀，你可真是个天才。",
+    "context": "朋友误关了共享文档；仅此一次回应。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "反语线索存在，但单次挖苦不足以自动判违规。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-03",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Na, du bist ja wirklich ein Genie. 🙄",
+      "语境信息": "朋友误关了共享文档；仅此一次回应。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE010",
+    "text": "Super, noch ein Meeting, das eine Mail hätte sein können.",
+    "zh": "真棒，又一个本可用邮件解决的会议。",
+    "context": "员工吐槽工作流程。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "评价制度而非攻击个人。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-04",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Super, noch ein Meeting, das eine Mail hätte sein können.",
+      "语境信息": "员工吐槽工作流程。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE011",
+    "text": "Das Internet hat heute wieder gewonnen.",
+    "zh": "互联网今天又赢了。",
+    "context": "回应离谱但无害的热门挑战。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "夸张式反语。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-04",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Das Internet hat heute wieder gewonnen.",
+      "语境信息": "回应离谱但无害的热门挑战。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE012",
+    "text": "Klar, der Drucker streikt nur aus Liebe zu uns.",
+    "zh": "当然，打印机罢工是因为爱我们。",
+    "context": "办公室设备故障。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "拟人化幽默。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-04",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Klar, der Drucker streikt nur aus Liebe zu uns.",
+      "语境信息": "办公室设备故障。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE013",
+    "text": "Ein Meisterwerk der Verspätung.",
+    "zh": "迟到的杰作。",
+    "context": "评论延迟两小时的火车。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "对象为服务表现。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-05",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Ein Meisterwerk der Verspätung.",
+      "语境信息": "评论延迟两小时的火车。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE014",
+    "text": "Ja genau, weil Kommentare immer die Welt retten.",
+    "zh": "对啊，评论总能拯救世界。",
+    "context": "讨论网络行动主义。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "立场讽刺，无明确有害目标。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-05",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Ja genau, weil Kommentare immer die Welt retten.",
+      "语境信息": "讨论网络行动主义。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE015",
+    "text": "Heute läuft wirklich alles perfekt. ☔",
+    "zh": "今天真是一切完美。",
+    "context": "配图是被雨淋湿的鞋。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "文字与情境反差构成反语。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-05",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Heute läuft wirklich alles perfekt. ☔",
+      "语境信息": "配图是被雨淋湿的鞋。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE016",
+    "text": "Du Maschine!",
+    "zh": "你这机器！",
+    "context": "队友完成马拉松后互相祝贺。",
+    "category": "讽刺与反语",
+    "reference": "未发现明显风险",
+    "rationale": "在该情境为赞扬，非去人化攻击。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-06",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Du Maschine!",
+      "语境信息": "队友完成马拉松后互相祝贺。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE017",
+    "text": "Du bist wirklich ein Genie.",
+    "zh": "你真是个天才。",
+    "context": "仅保留单条评论，无原帖。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "赞美或反语均可能，需要原帖。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-06",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Du bist wirklich ein Genie.",
+      "语境信息": "仅保留单条评论，无原帖。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE018",
+    "text": "Die gehören hier nicht hin.",
+    "zh": "他们不属于这里。",
+    "context": "指代对象未知。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "需明确“他们”是人、物还是某个组织。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-06",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Die gehören hier nicht hin.",
+      "语境信息": "指代对象未知。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE019",
+    "text": "Wir sehen uns noch.",
+    "zh": "我们还会见面的。",
+    "context": "没有前后文或关系信息。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "告别或隐含威胁均可能。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-07",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Wir sehen uns noch.",
+      "语境信息": "没有前后文或关系信息。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE020",
+    "text": "Typisch für euch.",
+    "zh": "你们总是这样。",
+    "context": "群体指向不明。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "无法确认群体属性或贬损含义。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-07",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Typisch für euch.",
+      "语境信息": "群体指向不明。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE021",
+    "text": "Das wirst du bereuen.",
+    "zh": "你会后悔的。",
+    "context": "缺少讨论对象。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "可能提醒选择后果，亦可能恐吓。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-07",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Das wirst du bereuen.",
+      "语境信息": "缺少讨论对象。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE022",
+    "text": "Schon wieder du 😂",
+    "zh": "又是你。",
+    "context": "互动历史未知。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "可能熟人招呼，也可能排斥。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-08",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Schon wieder du 😂",
+      "语境信息": "互动历史未知。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE023",
+    "text": "Opfer.",
+    "zh": "受害者／菜鸟。",
+    "context": "截图缺少上下文。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "名词指称、辱称或引用需要区分。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-08",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Opfer.",
+      "语境信息": "截图缺少上下文。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE024",
+    "text": "Der hat sie doch nicht alle.",
+    "zh": "他脑子不正常吧。",
+    "context": "不知道指现实个人还是虚构角色。",
+    "category": "语境缺失",
+    "reference": "需要补充上下文",
+    "rationale": "需确认目标与交流情境。",
+    "rule": "DE-CTX-001",
+    "date": "2026-10-08",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Der hat sie doch nicht alle.",
+      "语境信息": "不知道指现实个人还是虚构角色。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-CTX-001"
+    }
+  },
+  {
+    "id": "DE025",
+    "text": "Du kannst nichts. Hör endlich auf zu posten.",
+    "zh": "你什么都不会，别再发了。",
+    "context": "同一用户一周在同一创作者作品下重复发布六次。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "明确个人目标、重复行为与贬损。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-09",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Du kannst nichts. Hör endlich auf zu posten.",
+      "语境信息": "同一用户一周在同一创作者作品下重复发布六次。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE026",
+    "text": "Alle zu seinem Profil, macht ihn fertig!",
+    "zh": "都去他的主页，整垮他！",
+    "context": "评论附上虚构账号并号召集体攻击。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "存在组织针对个人的攻击线索。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-09",
+    "priority": "高",
+    "dimensions": {
+      "语言形式": "Alle zu seinem Profil, macht ihn fertig!",
+      "语境信息": "评论附上虚构账号并号召集体攻击。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE027",
+    "text": "Niemand will dein Gesicht sehen.",
+    "zh": "没人想看到你的脸。",
+    "context": "针对个人自拍，多次重复。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "外貌贬损与持续针对。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-09",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Niemand will dein Gesicht sehen.",
+      "语境信息": "针对个人自拍，多次重复。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE028",
+    "text": "Du bist zu dumm für diesen Beruf.",
+    "zh": "你蠢得不配干这行。",
+    "context": "针对创作者本人，公开羞辱。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "从观点批评转向个人贬损，需要复核。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-10",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Du bist zu dumm für diesen Beruf.",
+      "语境信息": "针对创作者本人，公开羞辱。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE029",
+    "text": "Wir kommentieren jedes Video, bis du verschwindest.",
+    "zh": "我们会评论每个视频直到你消失。",
+    "context": "群体宣称持续围攻同一创作者。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "协调行为与驱赶目标明确。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-10",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Wir kommentieren jedes Video, bis du verschwindest.",
+      "语境信息": "群体宣称持续围攻同一创作者。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE030",
+    "text": "Deine Adresse steht bald überall.",
+    "zh": "你的地址很快会到处都是。",
+    "context": "用户拒绝私聊后收到回复；未出现真实地址。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "以曝光个人信息进行恐吓。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-10",
+    "priority": "高",
+    "dimensions": {
+      "语言形式": "Deine Adresse steht bald überall.",
+      "语境信息": "用户拒绝私聊后收到回复；未出现真实地址。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE031",
+    "text": "Ich mache täglich neue Accounts, um dich zu nerven.",
+    "zh": "我每天建新号来烦你。",
+    "context": "目标已要求停止联系。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "明确持续骚扰意图。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-11",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Ich mache täglich neue Accounts, um dich zu nerven.",
+      "语境信息": "目标已要求停止联系。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE032",
+    "text": "Schreibt ihr alle, dass sie wertlos ist.",
+    "zh": "大家都去告诉她，她一文不值。",
+    "context": "号召评论特定虚构创作者。",
+    "category": "潜在骚扰",
+    "reference": "存在潜在风险",
+    "rationale": "协调贬损行为。",
+    "rule": "DE-HAR-001",
+    "date": "2026-10-11",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Schreibt ihr alle, dass sie wertlos ist.",
+      "语境信息": "号召评论特定虚构创作者。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HAR-001"
+    }
+  },
+  {
+    "id": "DE033",
+    "text": "Morgen warte ich vor deinem Büro und schlage dich.",
+    "zh": "明天我在你的办公室外等着打你。",
+    "context": "直接回复一名虚构用户。",
+    "category": "威胁／群体攻击",
+    "reference": "建议人工复核",
+    "rationale": "具体时间、地点与身体伤害意图；优先复核。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-11",
+    "priority": "高",
+    "dimensions": {
+      "语言形式": "Morgen warte ich vor deinem Büro und schlage dich.",
+      "语境信息": "直接回复一名虚构用户。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE034",
+    "text": "Menschen dieser Religion sind weniger wert.",
+    "zh": "这种宗教的人更低等。",
+    "context": "公开讨论中针对宗教身份概括贬损。",
+    "category": "威胁／群体攻击",
+    "reference": "建议人工复核",
+    "rationale": "基于身份的群体贬损。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-12",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Menschen dieser Religion sind weniger wert.",
+      "语境信息": "公开讨论中针对宗教身份概括贬损。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE035",
+    "text": "Wir sollten sie wegen ihrer Herkunft ausschließen.",
+    "zh": "我们该因他们的出身排斥他们。",
+    "context": "指向某族裔群体。",
+    "category": "威胁／群体攻击",
+    "reference": "建议人工复核",
+    "rationale": "基于身份的排斥主张。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-12",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Wir sollten sie wegen ihrer Herkunft ausschließen.",
+      "语境信息": "指向某族裔群体。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE036",
+    "text": "Ich werde dich verletzen, wenn du weiterredest.",
+    "zh": "你再说我就伤害你。",
+    "context": "争执中的直接回复。",
+    "category": "威胁／群体攻击",
+    "reference": "建议人工复核",
+    "rationale": "以人身伤害阻止发言。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-12",
+    "priority": "高",
+    "dimensions": {
+      "语言形式": "Ich werde dich verletzen, wenn du weiterredest.",
+      "语境信息": "争执中的直接回复。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE037",
+    "text": "Er schrieb: „Ich werde dich verletzen.“ Das ist nicht okay.",
+    "zh": "他写“我会伤害你”，这不对。",
+    "context": "用户引用威胁以谴责并报告。",
+    "category": "威胁／群体攻击",
+    "reference": "未发现明显风险",
+    "rationale": "包含威胁词句但立场为反对；需核对引用范围。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-13",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Er schrieb: „Ich werde dich verletzen.“ Das ist nicht okay.",
+      "语境信息": "用户引用威胁以谴责并报告。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE038",
+    "text": "Im Roman sagt die Figur: „Ich mache dich fertig.“",
+    "zh": "小说中的角色说“我要收拾你”。",
+    "context": "书评明确标注虚构作品与角色。",
+    "category": "威胁／群体攻击",
+    "reference": "未发现明显风险",
+    "rationale": "虚构引用，不能只凭词句认定现实威胁。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-13",
+    "priority": "常规",
+    "dimensions": {
+      "语言形式": "Im Roman sagt die Figur: „Ich mache dich fertig.“",
+      "语境信息": "书评明确标注虚构作品与角色。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE039",
+    "text": "Greift sie nach der Veranstaltung an!",
+    "zh": "活动结束后攻击他们！",
+    "context": "号召对某宗教群体实施暴力。",
+    "category": "威胁／群体攻击",
+    "reference": "建议人工复核",
+    "rationale": "身份目标与暴力号召明确。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-13",
+    "priority": "高",
+    "dimensions": {
+      "语言形式": "Greift sie nach der Veranstaltung an!",
+      "语境信息": "号召对某宗教群体实施暴力。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  },
+  {
+    "id": "DE040",
+    "text": "Diese Gruppe hat kein Recht zu existieren.",
+    "zh": "这个群体没有生存权。",
+    "context": "前文明确指向一个族裔群体。",
+    "category": "威胁／群体攻击",
+    "reference": "建议人工复核",
+    "rationale": "否认群体生存权，需高优先复核。",
+    "rule": "DE-HARM-001",
+    "date": "2026-10-14",
+    "priority": "高",
+    "dimensions": {
+      "语言形式": "Diese Gruppe hat kein Recht zu existieren.",
+      "语境信息": "前文明确指向一个族裔群体。",
+      "交际意图": "待标注：结合语境区分赞美、反语、批评、攻击、引用与谴责",
+      "目标对象": "参照上下文确认目标，避免从词形直接推断",
+      "互动行为": "只使用给定互动历史，不推断未提供的行为",
+      "规则依据": "DE-HARM-001"
+    }
+  }
+];
+</script><script>'use strict';
+const LABELS=['未发现明显风险','存在潜在风险','需要补充上下文','建议人工复核'];
+const KEY='kontextlab-v1';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let annotations={},selected='DE001',round='A',query='',category='',status='',comparison='AB';
+try{annotations=validate(JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){document.querySelector('#storage-note').textContent=' 存储读取失败，当前会话仍可使用，请及时备份。'}
+function validate(data){if(!data||typeof data!=='object'||Array.isArray(data))throw Error('无效备份');const clean={};for(const [id,rs] of Object.entries(data)){if(!CASES.some(c=>c.id===id)||!rs||typeof rs!=='object')throw Error('未知案例');clean[id]={};for(const [r,a] of Object.entries(rs)){if(!['A','B'].includes(r)||!a||!LABELS.includes(a.label)||typeof a.evidence!=='string'||a.evidence.length>10000||typeof a.uncertain!=='boolean'||!['待复核','已复核'].includes(a.review)||a.version!=='1.0')throw Error('标注格式错误');clean[id][r]={label:a.label,evidence:a.evidence,uncertain:a.uncertain,review:a.review,version:a.version,at:typeof a.at==='string'?a.at:''}}}return clean}
+function notify(s){const t=document.querySelector('#toast');t.textContent=s;t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',3500)}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(annotations));return true}catch(e){notify('本地存储不可用，标注留在当前会话，请导出备份');return false}}
+function agreement(pairs){let n=pairs.length;if(!n)return {n:0,agreement:null,kappa:null,matrix:LABELS.map(()=>LABELS.map(()=>0))};const matrix=LABELS.map(()=>LABELS.map(()=>0));pairs.forEach(([a,b])=>matrix[LABELS.indexOf(a)][LABELS.indexOf(b)]++);let po=matrix.reduce((s,row,i)=>s+row[i],0)/n;let pe=LABELS.reduce((s,_,i)=>s+matrix[i].reduce((a,b)=>a+b,0)*matrix.reduce((a,row)=>a+row[i],0)/(n*n),0);return{n,agreement:po,kappa:Math.abs(1-pe)<1e-12?null:(po-pe)/(1-pe),matrix}}
+function paired(){return CASES.flatMap(c=>{let a=annotations[c.id]?.A,b=annotations[c.id]?.B;if(comparison==='AB')return a&&b?[[a.label,b.label,c]]:[];return a?[[c.reference,a.label,c]]:[]})}
+function metric(label,value,sub){return `<div class="card"><div class="metric-label">${label}</div><div class="number">${value}</div><small>${sub}</small></div>`}
+function counts(xs,key){return xs.reduce((o,c)=>(o[key(c)]=(o[key(c)]||0)+1,o),{})}
+function bars(obj,total){return Object.entries(obj).map(([k,v])=>`<div class="bar-row"><div class="bar-label"><span>${esc(k)}</span><span>${v} / ${total}</span></div><div class="track"><div class="fill" style="width:${total?v/total*100:0}%"></div></div></div>`).join('')}
+function route(){return ['cases','dashboard','agreement','rules'].includes(location.hash.slice(1))?location.hash.slice(1):'cases'}
+function render(){const r=route();document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.hash==='#'+r));document.querySelector('#breadcrumb').textContent={cases:'案例工作台',dashboard:'研究看板',agreement:'一致性分析',rules:'规则与方法'}[r];({cases:renderCases,dashboard:renderDashboard,agreement:renderAgreement,rules:renderRules}[r])()}
+function renderCases(){let done=CASES.filter(c=>annotations[c.id]?.[round]).length;let needs=CASES.filter(c=>annotations[c.id]?.[round]?.review==='待复核').length;document.querySelector('#view').innerHTML=`<div class="metrics">${metric('原创模拟案例','40','覆盖 5 类语境场景')}${metric('本轮已标注',done,`轮次 ${round} · ${Math.round(done/40*100)}% 完成`)}${metric('本轮待复核',needs,'由实际标注状态汇总')}${metric('框架版本','1.0','项目自定义 · 可追溯')}</div><div class="toolbar"><input id="search" type="search" placeholder="搜索德语、中文、案例编号…" aria-label="搜索案例" value="${esc(query)}"><select id="category" aria-label="场景筛选"><option value="">全部场景</option>${[...new Set(CASES.map(c=>c.category))].map(c=>`<option ${category===c?'selected':''}>${c}</option>`).join('')}</select><select id="status" aria-label="标注状态"><option value="">全部状态</option><option ${status==='未标注'?'selected':''}>未标注</option><option ${status==='已标注'?'selected':''}>已标注</option></select><select id="round" aria-label="标注轮次"><option value="A" ${round==='A'?'selected':''}>独立轮次 A</option><option value="B" ${round==='B'?'selected':''}>独立轮次 B</option></select></div><div class="workspace"><div class="card case-list" id="list"></div><div class="card" id="detail"></div></div>`;
+document.querySelector('#search').oninput=e=>{query=e.target.value;renderList()};document.querySelector('#category').onchange=e=>{category=e.target.value;renderList()};document.querySelector('#status').onchange=e=>{status=e.target.value;renderList()};document.querySelector('#round').onchange=e=>{round=e.target.value;renderCases()};renderList()}
+function filtered(){return CASES.filter(c=>(!category||c.category===category)&&(!query||[c.id,c.text,c.zh,c.context].join(' ').toLowerCase().includes(query.toLowerCase()))&&(!status||(status==='已标注')===!!annotations[c.id]?.[round]))}
+function renderList(){const list=filtered();if(list.length&&!list.some(c=>c.id===selected))selected=list[0].id;document.querySelector('#list').innerHTML=list.length?list.map(c=>`<button class="case-row ${selected===c.id?'selected':''}" data-id="${c.id}"><div class="case-meta"><span>${c.id} · ${c.category}</span><span>${annotations[c.id]?.[round]?'● 已标注':'○ 待研判'}</span></div><p lang="de">${esc(c.text)}</p><span class="tag ${c.priority==='高'?'orange':'purple'}">${c.priority==='高'?'优先复核线索':c.rule}</span></button>`).join(''):'<div class="empty">没有匹配案例，请调整筛选条件。</div>';document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{selected=b.dataset.id;renderList()});if(list.length)renderDetail();else document.querySelector('#detail').innerHTML='<div class="empty">请选择其他筛选条件。</div>'}
+function renderDetail(){const c=CASES.find(c=>c.id===selected),a=annotations[c.id]?.[round];document.querySelector('#detail').innerHTML=`<div class="detail-top"><span class="eyebrow">${c.id} / CONTEXT REVIEW</span><span class="tag purple">原创虚构 · ${c.date}</span></div><blockquote class="quote" lang="de">“${esc(c.text)}”</blockquote><div class="translation">${esc(c.zh)}</div><div class="context"><b>语境档案</b><p>${esc(c.context)}</p></div><h3>六维研判框架</h3><div class="dimensions">${Object.entries(c.dimensions).map(([k,v])=>`<div class="dimension"><b>${k}</b>${esc(v)}</div>`).join('')}</div><div class="form"><h3>记录你的判断 <span class="tag">轮次 ${round}</span></h3><p class="legend">A/B 为同一设备上的两个标注槽位；若由同一人完成，只能称为双轮标注。当前轮次不展示另一轮结论。</p><label>研判结果</label><div class="options">${LABELS.map(l=>`<button class="${a?.label===l?'chosen':''}" data-label="${l}">${l}</button>`).join('')}</div><label for="evidence">证据说明与待补充信息 <span class="subtle">（必填）</span></label><textarea id="evidence" maxlength="10000" placeholder="说明目标、语境线索、反例，以及证据不足之处…">${esc(a?.evidence||'')}</textarea><label><input type="checkbox" id="uncertain" ${a?.uncertain?'checked':''}> 标记判断不确定性</label><label for="review">复核状态</label><select id="review"><option ${a?.review!=='已复核'?'selected':''}>待复核</option><option ${a?.review==='已复核'?'selected':''}>已复核</option></select><div class="form-bottom"><small id="save-status">${a?'上次保存：'+esc(a.at):'尚未保存'}</small><span>${a?'<button id="delete-label">删除本轮标注</button>':''} <button id="save" class="primary">保存本轮研判 →</button></span></div></div><details><summary>查看研究参考标签（完成独立标注后再打开）</summary><p><b>${c.reference}</b></p><p>${esc(c.rationale)}</p><p class="legend">参考标签由项目作者设定，并非真实审核结果或客观真值。打开参考标签会影响后续独立性，请在报告中披露。</p></details>`;
+if(a)document.querySelector('#delete-label').onclick=()=>{delete annotations[c.id][round];if(!Object.keys(annotations[c.id]).length)delete annotations[c.id];const saved=persist();renderCases();if(saved)notify('本轮标注已删除')};let chosen=a?.label||'';document.querySelectorAll('[data-label]').forEach(b=>b.onclick=()=>{chosen=b.dataset.label;document.querySelectorAll('[data-label]').forEach(x=>x.classList.toggle('chosen',x===b))});document.querySelector('#save').onclick=()=>{const evidence=document.querySelector('#evidence').value.trim();if(!chosen||!evidence){notify('请选择结论并填写证据说明');return}annotations[c.id]??={};annotations[c.id][round]={label:chosen,evidence,uncertain:document.querySelector('#uncertain').checked,review:document.querySelector('#review').value,version:'1.0',at:new Date().toISOString()};const saved=persist();renderCases();if(saved)notify('研判已保存在当前浏览器')}}
+function renderDashboard(){const rows=CASES.filter(c=>annotations[c.id]?.[round]);const anns=rows.map(c=>annotations[c.id][round]);const disagreements=CASES.filter(c=>annotations[c.id]?.A&&annotations[c.id]?.B&&annotations[c.id].A.label!==annotations[c.id].B.label);document.querySelector('#view').innerHTML=`<div class="metrics">${metric('当前统计轮次',round,'切换轮次可查看另一轮标注')}${metric('已完成研判',rows.length,'只统计已保存记录')}${metric('待复核',anns.filter(a=>a.review==='待复核').length,'实际标注的复核状态')}${metric('A/B 分歧',disagreements.length,'仅统计两轮均完成的案例')}</div><div class="toolbar"><button id="toggle-round">切换到轮次 ${round==='A'?'B':'A'}</button><span class="legend">类别分布与趋势均为模拟案例数据，不代表平台实际风险水平。</span></div><div class="two-col"><div class="card"><h2>研判结论分布</h2>${rows.length?bars(counts(anns,a=>a.label),rows.length):'<p class="empty">尚无标注，请先在工作台保存判断。</p>'}</div><div class="card"><h2>案例场景分布</h2><small>固定研究样本 · n = 40</small>${bars(counts(CASES,c=>c.category),40)}</div><div class="card"><h2>复核与不确定性</h2>${bars({'待复核':anns.filter(a=>a.review==='待复核').length,'已复核':anns.filter(a=>a.review==='已复核').length,'不确定性标记':anns.filter(a=>a.uncertain).length},rows.length)}<small>不确定性可与复核状态重叠。</small></div><div class="card"><h2>模拟日期覆盖</h2><small>柱高为每个案例日期下已标注数量，并非平台风险趋势。</small><div class="trend">${Object.entries(counts(CASES,c=>c.date)).map(([d])=>{let n=rows.filter(c=>c.date===d).length;return `<div class="trend-col"><div class="trend-bar" style="height:${n*33}px" title="${d}：${n} 条"></div>${d.slice(8)}</div>`}).join('')}</div></div></div><div class="card rule"><h2>优先复核队列</h2><p class="legend">项目自定义：具体人身威胁、暴力号召、协调攻击或信息曝光威胁优先；其余常规复核。不构成平台风险等级。</p>${caseTable(rows.filter(c=>annotations[c.id][round].review==='待复核').sort((a,b)=>(b.priority==='高')-(a.priority==='高')))}</div>`;document.querySelector('#toggle-round').onclick=()=>{round=round==='A'?'B':'A';renderDashboard()}}
+function caseTable(rows){return rows.length?`<div class="scroll"><table><thead><tr><th>案例</th><th>原文</th><th>研究类别</th><th>优先级</th></tr></thead><tbody>${rows.map(c=>`<tr><td><button data-open="${c.id}">${c.id}</button></td><td lang="de">${esc(c.text)}</td><td>${c.category}</td><td>${c.priority}</td></tr>`).join('')}</tbody></table></div>`:'<p class="empty">当前没有记录。</p>'}
+function renderAgreement(){const pairs=paired(),s=agreement(pairs),diff=pairs.filter(p=>p[0]!==p[1]);document.querySelector('#view').innerHTML=`<div class="toolbar"><select id="comparison" aria-label="比较方式"><option value="AB" ${comparison==='AB'?'selected':''}>轮次 A 与轮次 B</option><option value="RA" ${comparison==='RA'?'selected':''}>研究参考标签与轮次 A</option></select><span class="legend">仅使用两侧都有标签的案例；未标注项不进入分母。</span></div><div class="metrics">${metric('有效配对',s.n,'研究样本总数 40')}${metric('一致率',s.agreement===null?'—':(s.agreement*100).toFixed(1)+'%','相同判断数 / 有效配对数')}${metric("Cohen’s κ",s.kappa===null?'—':s.kappa.toFixed(3),s.n&&s.kappa===null?'边际退化，κ 无定义':'已校正随机一致概率')}${metric('分歧案例',diff.length,'分歧不等于某一方错误')}</div><div class="card"><h2>标签交叉表</h2><p class="legend">行：${comparison==='AB'?'轮次 A':'研究参考'}；列：${comparison==='AB'?'轮次 B':'轮次 A'}。参考标签对照不能解释为模型准确率。</p><div class="scroll"><table><thead><tr><th>行 / 列</th>${LABELS.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>${s.matrix.map((row,i)=>`<tr><th>${LABELS[i]}</th>${row.map((v,j)=>`<td style="${i===j?'background:#eff4fc;font-weight:700':''}">${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="legend">κ = (pₒ − pₑ) / (1 − pₑ)。小样本、类别不均衡及同一人的重复标注都限制解释；此处不设置武断的“通过”阈值。</p></div><div class="two-col rule"><div class="card"><h2>分歧对应的研究规则</h2>${diff.length?bars(counts(diff,p=>p[2].rule),diff.length):'<p class="empty">尚无分歧记录。</p>'}</div><div class="card"><h2>研究设计提示</h2><p>独立标注前固定规则版本，不提前查看参考标签。两人可各自导出备份，再用合并导入汇总 A / B 记录。</p><p>同一人完成两轮时，记录间隔与参考标签暴露情况。复核结论应保留理由，勿将作者参考标签当作平台裁决。</p></div></div><div class="card"><h2>分歧案例</h2>${caseTable(diff.map(p=>p[2]))}</div>`;document.querySelector('#comparison').onchange=e=>{comparison=e.target.value;renderAgreement()}}
+function renderRules(){document.querySelector('#view').innerHTML=`<div class="card"><p class="eyebrow">METHOD / VERSION 1.0</p><h2>语境优先，可解释，也允许暂不判断。</h2><p>分析顺序：语言形式 → 语境信息 → 交际意图 → 目标对象 → 互动行为 → 规则依据。六维结构为本项目的操作化设计，受语用学与多层次话语分析启发；未宣称实现或验证完整 DIMEAN 方法。</p><p>轻量规则引擎只按作者预先编码的语境元数据提供场景分组与复核优先级，不对自由输入的德语作自动违规判断。参考标签是可争论的研究假设。</p></div>${[['DE-CTX-001','语境与立场辨析','确认赞美、反语、引用、谴责及虚构表达；语境不足时保留判断。','https://www.tiktok.com/community-guidelines/en/enforcement/'],['DE-HAR-001','针对性骚扰线索','记录目标、贬损内容、频率、拒绝联系及协调行为；持续性是分析维度，不是所有骚扰成立的必要条件。','https://www.tiktok.com/community-guidelines/en/safety-civility/'],['DE-HARM-001','威胁与身份攻击线索','确认具体伤害意图、暴力号召及身份目标；区分引用与认可，不根据关键词直接裁决。','https://www.tiktok.com/community-guidelines/en/safety-civility/']].map(([id,title,desc,url])=>`<div class="card rule"><span class="tag purple">项目规则 ${id} · v1.0</span><h2>${title}</h2><p>${desc}</p><p><b>公开来源入口：</b><a href="${url}" target="_blank" rel="noopener">TikTok Community Guidelines ↗</a></p><p class="legend">来源链接整理日期：2026-10-19。链接不是规则存档或逐条政策映射；请打开官网核验当前文本。上方名称、编号、维度、参考标签和工作流均为项目自定义，未获得平台背书。</p></div>`).join('')}<div class="card rule"><h2>数据与研究边界</h2><ul><li>40 条案例均为本项目原创虚构；中文为语境化释义，非唯一译法。</li><li>默认不提供任何标注实验结果；看板依据本机保存的实际操作计算。</li><li>本地存储与备份包含证据笔记。清理浏览器、换设备或改变网址不会自动迁移，请使用 JSON 备份。</li><li>报告应披露参与者数量、标注是否独立、参考标签暴露、版本与样本局限。</li><li>规则版本固定为 1.0，变更标准需同时更新数据与版本，旧标注不应无条件合并比较。</li></ul></div>`}
+function download(name,content,type){const url=URL.createObjectURL(new Blob(['\uFEFF'+content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function report(){const pairs=paired(),s=agreement(pairs),rows=CASES.filter(c=>annotations[c.id]?.[round]);return `# KontextLab 模拟研判报告\n\n生成时间：${new Date().toISOString()}\n框架版本：1.0\n数据：40 条原创虚构案例；非 TikTok 平台数据。\n\n## 标注概况\n统计轮次：${round}\n完成：${rows.length}/40\n待复核：${rows.filter(c=>annotations[c.id][round].review==='待复核').length}\n不确定性：${rows.filter(c=>annotations[c.id][round].uncertain).length}\n结论分布：${JSON.stringify(counts(rows,c=>annotations[c.id][round].label))}\n\n## 一致性\n比较：${comparison==='AB'?'轮次 A 与 B':'作者参考标签与 A'}\n有效配对：${s.n}\n一致率：${s.agreement===null?'无数据':(s.agreement*100).toFixed(1)+'%'}\nCohen’s Kappa：${s.kappa===null?'不可计算（无样本或随机一致概率为1）':s.kappa.toFixed(3)}\n分歧规则分布：${JSON.stringify(counts(pairs.filter(p=>p[0]!==p[1]),p=>p[2].rule))}\n\n## 方法局限与后续工作\n标注槽位不代表真实人数；参与人数、独立性、标注间隔及是否查看参考标签需研究者补充披露。\n参考标签不是客观真值。样本小且人工设计，不可推广至真实平台风险分布。\n建议逐项复核下列分歧，补足上下文并记录规则修订理由；没有配对时不能推断一致性。\n${pairs.filter(p=>p[0]!==p[1]).map(p=>'- '+p[2].id+'：'+p[0]+' / '+p[1]).join('\n')||'尚无可报告的分歧。'}\n\n## 标注证据记录\n${rows.map(c=>`### ${c.id}\n原文：${c.text}\n语境：${c.context}\n结论：${annotations[c.id][round].label}\n证据：${annotations[c.id][round].evidence}\n复核：${annotations[c.id][round].review}\n规则：${c.rule} v1.0\n`).join('\n')}\n## 来源\nhttps://www.tiktok.com/community-guidelines/\n公开规则与项目自定义分析维度应分别解释；导出报告不构成平台审核结论。\n`}
+document.querySelector('#export').onclick=()=>download('KontextLab-report.md',report(),'text/markdown;charset=utf-8');
+function csvCell(s){s=String(s??'');if(/^[\s]*[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'}
+document.querySelector('#csv').onclick=()=>{let rows=[['案例','德语原文','中文释义','语境','类别','研究规则','作者参考标签','轮次','研判结果','证据','不确定性','复核状态','框架版本','保存时间']];CASES.forEach(c=>['A','B'].forEach(r=>{const a=annotations[c.id]?.[r];if(a)rows.push([c.id,c.text,c.zh,c.context,c.category,c.rule,c.reference,r,a.label,a.evidence,a.uncertain,a.review,a.version,a.at])}));download('KontextLab-annotations.csv',rows.map(r=>r.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8')};
+document.querySelector('#backup').onclick=()=>download('KontextLab-backup.json',JSON.stringify({schema:1,framework:'1.0',annotations},null,2),'application/json');
+document.querySelector('#import').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>2e6)throw Error('文件过大');const data=JSON.parse((await file.text()).replace(/^\uFEFF/,''));if(data.schema!==1||data.framework!=='1.0')throw Error('版本不兼容');const incoming=validate(data.annotations);for(const [id,rs] of Object.entries(incoming)){for(const [r,a] of Object.entries(rs)){const old=annotations[id]?.[r];if(old&&JSON.stringify(old)!==JSON.stringify(a))throw Error(`${id} 轮次 ${r} 已有不同记录；请先备份，在独立浏览器中整理冲突`)}}for(const [id,rs]of Object.entries(incoming))annotations[id]={...annotations[id],...rs};const saved=persist();render();if(saved)notify('备份已合并，原有标注已保留')}catch(err){notify('导入失败：'+err.message)}e.target.value=''};
+document.addEventListener('click',e=>{let b=e.target.closest('[data-open]');if(b){selected=b.dataset.open;query='';category='';status='';location.hash='cases';render()}});
+window.addEventListener('hashchange',render);render();
+</script></body></html>
