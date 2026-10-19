@@ -1,0 +1,7 @@
+Tool: built-in image_gen (no external API key).
+Purpose: decorative website background, darkened by CSS; no foreground copy.
+
+Prompt:
+Use case: stylized-concept. Asset type: full-page website background image, wide landscape 16:9. Create a vast cosmic nebula made entirely of thousands of tiny typographic words and letters, clustered into swirling stellar dust clouds and spiral galaxy filaments. The word cloud itself forms the nebula; no ordinary opaque smoke. Deep black-navy outer space, restrained electric cyan, indigo, violet and faint magenta luminous type, small stars. Words: Sprache, Welt, Kontext, Bedeutung, Sinn, Verstehen, Grenze, Wissen, Zeichen, Dialog, language, meaning, context, world, ambiguity, discourse, 语言, 世界, 语境, 意义. These are small atmospheric typographic fragments, with many scale differences and depth; no giant slogans or readable headline. Wide cinematic composition with large quiet dark regions for website text and panels. Overall dark, elegant scientific cyberpunk ambience with delicate stellar filaments; strongest word-nebula clouds toward far right and outer edges, subdued central area. No people, spaceships, planets, logos, watermark, UI, or interface mockup. Output only the background artwork.
+
+Original: word-nebula.png. Web asset: word-nebula.jpg (format/compression only).
