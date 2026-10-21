@@ -1,3 +1,11 @@
+# KontextLab 3.0 · Research workspace
+
+Live: https://hallodongyue-lang.github.io/kontextlab/
+
+New in3.0: multi-dimensional corpus filters; context comparison with initial/final judgments; disagreement and entropy; real research aggregates; CSV/JSON exports; private records, per-review rationale consent, withdrawal and owner deletion.
+
+See [RESEARCH.md](RESEARCH.md) for protocol, export definitions and limitations. The backend research SQL extends the existing V2.2 schema; apply `backend/research.sql` then `backend/research-seed-metadata.sql`. Do not rerun the original schema against an existing database.
+
 # KontextLab V2.2 — Context Commons
 
 在线：https://hallodongyue-lang.github.io/kontextlab/

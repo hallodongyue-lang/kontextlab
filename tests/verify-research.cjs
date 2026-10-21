@@ -1,0 +1,9 @@
+const vm=require('vm'),fs=require('fs'),assert=require('assert');
+const stub={addEventListener(){}};const ctx={document:{querySelector:()=>stub,addEventListener(){}},window:{addEventListener(){}},localStorage:{getItem:()=>null},location:{hash:'#library'},setTimeout,clearTimeout,TextDecoder,Uint8Array,console};vm.createContext(ctx);vm.runInContext(fs.readFileSync('src/app.js','utf8'),ctx);vm.runInContext(fs.readFileSync('src/research.js','utf8').replace(/init\(\);\s*$/,''),ctx);const r=s=>vm.runInContext(s,ctx);
+assert(r('DICT.consent[0].includes("分享")'));
+assert(r('Object.values(RDICT).every(v=>v.length===3&&v.every(x=>x))'));
+assert.equal(r('entropy({a:5})'),0);assert.equal(r('entropy({a:2,b:2})'),1);assert.equal(r('entropy({})'),null);
+assert.equal(r('csvCell("=IMPORTXML(foo)")'),'"\'=IMPORTXML(foo)"');assert.equal(r('csvCell('+JSON.stringify('hello"x')+')'),'"hello""x"');
+r("samples=[{id:'a',status:'approved',final_tag:'normal',text:'Hallo',context:'test',hashtags:[],research_meta:{relation:'friends'}},{id:'b',status:'approved',final_tag:'irony',text:'Test',context:'test',hashtags:[],research_meta:{}}];stats={samples:[{id:'a',votes:5,ballots:{normal:3,irony:2}},{id:'b',votes:5,ballots:{irony:4,normal:1}}]}");assert.equal(r("researchRows('library').length"),2);r("researchFilters.dispute='contested'");assert.equal(r("researchRows('library')[0].id"),'a');r("researchFilters.dispute='stable'");assert.equal(r("researchRows('library')[0].id"),'b');r("researchFilters.dispute='';researchFilters.relation='friends'");assert.equal(r("researchRows('library').length"),1);
+for(const l of ['zh','en','de']){r(`lang='${l}'`);assert(r('Object.values(EXP_CONTEXT).every(a=>a.length===3&&a.every(b=>rtext(b)))'))}assert.equal(r('Object.keys(EXP_ITEMS).length'),3);
+console.log('PASS research: three-language copy, entropy zero/mixed/empty, CSV injection escaping, combined metadata/consensus filters and exact 80% boundary, nine context variants.');
